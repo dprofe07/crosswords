@@ -1,5 +1,3 @@
-from cffi.setuptools_ext import execfile
-
 crosswords = {
     'Анаграмный': 'crossword_anagramniy',
     'Чужой среди своих': 'crossword_chuzhoi_sredi_swoih',
@@ -15,4 +13,4 @@ if __name__ == '__main__':
         print(f'{n + 1}. {i}')
     a = input('Номер: ')
     a = int(a)
-    execfile(f'{crosswords[list(crosswords.keys())[a - 1]]}.py', {'__name__': '__main__'})
+    exec(open(f'{crosswords[list(crosswords.keys())[a - 1]]}.py').read())
